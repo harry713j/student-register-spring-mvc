@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    <!-- Student -->
+    <bean id="student" class="org.school.model.Student" scope="prototype">
+        <property name="rollNo" value="0" />
+        <property name="firstName" value="" />
+        <property name="lastName" value="" />
+        <property name="majorSubject" value="" />
+    </bean>
+
+</beans>
