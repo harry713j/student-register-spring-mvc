@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="
-        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+        http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://www.springframework.org/schema/context
+         http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- Load properties file -->
+    <context:property-placeholder location="classpath:application.properties" />
 
     <!-- bean definitions here -->
     <!-- Student -->
@@ -11,6 +18,36 @@
         <property name="firstName" value="" />
         <property name="lastName" value="" />
         <property name="majorSubject" value="" />
+    </bean>
+
+    <!-- DataSource -->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" >
+            <value>org.postgresql.Driver</value>
+        </property>
+        <property name="url" value="${spring.datasource.url}" />
+        <property name="username" value="${spring.datasource.username}" />
+        <property name="password" value="${spring.datasource.password}" />
+    </bean>
+
+    <!-- JdbcTemplate bean -->
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <!-- StudentRepo -->
+    <bean id="studentRepo" class="org.school.repo.StudentRepo">
+        <property name="jdbc" ref="jdbcTemplate" />
+    </bean>
+
+    <!-- StudentService -->
+    <bean id="studentService" class="org.school.service.StudentService">
+        <property name="repo" ref="studentRepo" />
+    </bean>
+
+    <!--   StudentController-->
+    <bean id="studentController" class="org.school.controller.StudentController">
+        <property name="service" ref="studentService" />
     </bean>
 
 </beans>

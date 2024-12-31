@@ -40,6 +40,8 @@ dependencies {
     implementation 'org.springframework:spring-core:6.1.14'
     // Spring context
     implementation 'org.springframework:spring-context:6.1.14'
+    // Tomcat embed jasper
+    implementation 'org.apache.tomcat.embed:tomcat-embed-jasper:10.1.31'
 
 
 
