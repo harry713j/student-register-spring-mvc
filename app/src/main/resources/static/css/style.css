@@ -1,0 +1,178 @@
+  *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+   }
+
+  body{
+        width: 100%;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        text-align: center;
+    }
+
+    .home{
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1.5rem;
+            text-align: center;
+    }
+
+   h1{
+       font-size: 3rem;
+       font-weight: 700;
+       color: #333333;
+   }
+
+   h2 {
+     color: #333;
+     margin-bottom: 10px;
+   }
+
+   p{
+       font-size: 1.1rem;
+       font-weight: 400;
+       color: #2e2d2d;
+   }
+
+   .link__container{
+        width: 100%;
+       display: flex;
+       align-items: center;
+       justify-content: space-around;
+       self-align: center;
+   }
+
+   .link__container a{
+        display: inline-block;
+        padding: 8px 16px;
+        font-size: 1rem;
+        font-weight: 500;
+        color: #ffffff;
+        background-color: #ff0000;
+        border-radius: 4px;
+        transition: all 0.4s ease-in-out;
+        text-decoration: none;
+        text-transformation: capitalize;
+   }
+
+   .link__container a:hover{
+        opacity: 0.8;
+   }
+
+/* Registration */
+
+.form__card {
+    background-color: #fff;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 400px;
+    margin: 50px auto;
+}
+
+.form__card h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form__content {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__item {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.form__item label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form__item input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+button[type="submit"] {
+    background-color: #f39033;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+}
+
+button[type="submit"]:hover {
+    background-color: #f18621;
+}
+
+/* Student details */
+.student-detail-card {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  margin: 40px auto;
+}
+
+.student-detail-card h2 {
+  text-align: center;
+  color: #43ed28;
+}
+
+.student-detail-card p {
+  margin-bottom: 20px;
+}
+
+/* Show all students */
+.table__container{
+    width: 80%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin: 0 auto;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #c0f3f4;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:nth-child(odd) {
+  background-color: #f0e4b9;
+}

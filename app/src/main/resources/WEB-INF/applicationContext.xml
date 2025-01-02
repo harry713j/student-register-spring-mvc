@@ -47,7 +47,16 @@
 
     <!--   StudentController-->
     <bean id="studentController" class="org.school.controller.StudentController">
-        <property name="service" ref="studentService" />
+<!--        <property name="service" ref="studentService" />-->
     </bean>
+
+    <!--    ShowDetailsController-->
+    <bean id="showDetailsController" class="org.school.controller.ShowDetailsController">
+<!--        <property name="service" ref="studentService" />-->
+    </bean>
+
+    <!--    HomeController-->
+    <bean id="homeController" class="org.school.controller.HomeController" />
+
 
 </beans>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--        The web.xml file, also known as the deployment descriptor, is a key -->
+<!--        configuration file for Java EE (Enterprise Edition) web applications.-->
+<!--        It is used to configure servlets, servlet mappings, listeners, filters,-->
+<!--        and other web components-->
+
+<!--        When you use web.xml, the servlet container (Tomcat) reads the configurations-->
+<!--        from web.xml during startup-->
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+         https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+
+    <!--      This is not needed when we are using web.xml-->
+    <!--        Context context = tomcat.addContext("", new File(".")-->
+    <!--        .getAbsolutePath()); // default dir & no dir to create-->
+    <!--        Tomcat.addServlet(context, "studentServlet", new StudentController());-->
+    <!--        context.addServletMappingDecoded("/", "studentServlet"); // 1st param for url-->
+
+        <!--    Servlet definitions-->
+    <!--    DispatcherServlet: It manages the servlets by forwarding the requests to right servlet-->
+
+    <!--    This will make sure Spring make the controller rather the Tomcat container-->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    <servlet>
+        <servlet-name>dispatcher</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:WEB-INF/applicationContext.xml</param-value>
+        </init-param>
+    </servlet>
+
+        <servlet>
+            <servlet-name>HomeController</servlet-name>
+            <servlet-class>org.school.controller.HomeController</servlet-class>
+        </servlet>
+
+        <servlet>
+            <servlet-name>StudentController</servlet-name>
+            <servlet-class>org.school.controller.StudentController</servlet-class>
+        </servlet>
+
+        <servlet>
+            <servlet-name>ShowDetailsController</servlet-name>
+            <servlet-class>org.school.controller.ShowDetailsController</servlet-class>
+        </servlet>
+
+        <!--    Servlet Mapping-->
+        <servlet-mapping>
+        <!--  This is mapping to static directory for accessing css file in JSP-->
+            <servlet-name>default</servlet-name>
+            <url-pattern>/static/*</url-pattern>
+        </servlet-mapping>
+
+        <servlet-mapping>
+            <servlet-name>HomeController</servlet-name>
+            <url-pattern>/</url-pattern>
+        </servlet-mapping>
+
+        <servlet-mapping>
+            <servlet-name>StudentController</servlet-name>
+            <url-pattern>/registration</url-pattern>
+        </servlet-mapping>
+
+        <servlet-mapping>
+            <servlet-name>StudentController</servlet-name>
+            <url-pattern>/registerStudent</url-pattern>
+        </servlet-mapping>
+
+        <servlet-mapping>
+            <servlet-name>ShowDetailsController</servlet-name>
+            <url-pattern>/showStudents</url-pattern>
+        </servlet-mapping>
+</web-app>
+

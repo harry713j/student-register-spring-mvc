@@ -25,7 +25,7 @@ public class StudentRepo {
         int rows = jdbc.update(query, student.getRollNo(), student.getFirstName(),
                 student.getLastName(), student.getMajorSubject());
 
-        System.out.println(rows + " affected");
+        System.out.println(rows + " rows affected");
     }
 
     public List<Student> findAll(){
